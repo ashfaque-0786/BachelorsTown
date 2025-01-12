@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Navbar with Search Icon on Right</title>
+   <link rel="stylesheet" href="contact.html">
+   <link rel="stylesheet" href="about.html">
+   <link rel="stylesheet" href="login.html">
+   <link rel="stylesheet" href="myCart.html">
+   <link rel="stylesheet" href="search-results.html">
+
+
+</head>
+
+<body class="scroll-smooth ">
+  <nav class="sticky top-0 bg-white text-blue-500 shadow-md z-50">
+    <div class="max-w-7xl mx-auto pt-4 py-8 sm:py-8 lg:py-0 px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between h-16">
+        <!-- Logo -->
+        <div class="flex items-center justify-between w-full md:w-auto">
+          <!-- Logo (centered) -->
+          <div class="flex-1 text-center md:flex-none">
+            <a href="#" class="text-2xl font-bold text-black">BachelorsTown</a>
+          </div>
+        
+          <!-- Mobile Menu Button (aligned to the right) -->
+          <div class="md:hidden">
+            <button id="menu-btn" class="text-gray-400 hover:text-blue-500 focus:outline-none">
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+  
+        <!-- Centered Search Bar -->
+        <div class="mt-4 md:mt-0 md:flex md:flex-grow justify-center">
+          <div class="relative w-full max-w-lg">
+            <!-- Search Bar Input -->
+            <input
+              id="searchBar"
+              type="text"
+              class="bg-white text-blue-500 rounded-full pl-4 pr-10 py-2 focus:outline-none focus:ring focus:ring-blue-500 w-full border border-blue-500"
+              placeholder="Search for groceries..."
+            />
+            <!-- Search Button -->
+            <div
+              id="searchButton"
+              class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+              onclick="redirectToSearchResults()"
+            >
+              <svg
+                class="h-5 w-5 text-gray-400"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11 19a8 8 0 100-16 8 8 0 000 16zM21 21l-4.35-4.35"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      
+
+        <!-- Buttons (Login and My Cart) -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="login.html">
+            <button
+              type="button"
+              class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-full text-md px-6 py-2 text-center mt-2 me-2 mb-2"
+            >
+              Login
+            </button>
+          </a>
+          <a href="myCart.html">
+          <button
+            type="button"
+            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-full text-md px-6 py-2 text-center mt-2 me-2 mb-2"
+          >
+            My Cart
+          </button>
+        </a>
+        </div>
+      </div>
+    </div>
+      <!-- Hidden Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden">
+    <div class="px-4 py-2 space-y-2">
+      <a href="#home" class="block text-blue-500 hover:bg-blue-100 rounded-md px-4 py-2">Home</a>
+      <a href="about.html" class="block text-blue-500 hover:bg-blue-100 rounded-md px-4 py-2">About</a>
+      <a href="contact.html" class="block text-blue-500 hover:bg-blue-100 rounded-md px-4 py-2">Contact</a>
+      <div class=" md:flex items-center space-x-4">
+        <a href="login.html">
+          <button
+            type="button"
+            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-full text-md px-6 py-2 text-center mt-2 me-2 mb-2"
+          >
+            Login
+          </button>
+        </a>
+      <a href="myCart.html">
+        <button
+          type="button"
+          class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-full text-md px-6 py-2 text-center mt-2 me-2 mb-2"
+        >
+          My Cart
+        </button>
+      </a>
+      </div>
+    </div>
+  </div>
+  </nav>
+  
+
+  <!-- BANNER -->
+
+
+  <div id="home" class="bg-red-500 text-white text-center py-2 px-2">
+    <p class="text-lg font-semibold">🎉 Get 10% OFF on your first grocery order! Free delivery for orders above 499 🚚
+    </p>
+  </div>
+
+
+
+  <!-- BANNER eat sleep -->
+
+
+
+  <!-- <div class="bg-gradient-to-r from-pink-400 via-blue-400 to-yellow-400 text-white text-center py-12">
+    <h2 class="text-white-900 text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold tracking-wide">
+      EAT, SLEEP, SNACK, REPEAT
+    </h2>
+    <p class="mt-2 text-gray-200 text-lg px-6">
+      Your favorite snacks delivered right to your door! 🍕🍿🍩
+    </p>
+    <a href="#shop"
+      class="mt-4 inline-block px-6 py-2 bg-white text-gray-800 font-semibold rounded-full hover:bg-transparent hover:border border-white hover:border-2 hover:text-white transition-all">
+      Order Now
+    </a>
+  </div> -->
+
+ <!-- BANNER -->
+  <div
+ class="relative w-full h-[350px] bg-cover bg-center"
+ style="background-image: url('whatsapp001.jpg');"
+>
+ <!-- Overlay -->
+ <div class="absolute inset-0 bg-blue-200 bg-opacity-50 flex items-center justify-center">
+   <!-- Content -->
+   <div class="text-center text-black px-4">
+     <h1 class="text-3xl sm:text-5xl font-bold mb-4">
+       Freshness Delivered to Your Doorstep!
+     </h1>
+     <p class="text-md sm:text-xl mb-6">
+       Your one-stop shop for farm-fresh produce and groceries.
+     </p>
+     <!-- Call-to-action Button -->
+     <a
+       href="#shop"
+       class="bg-blue-700 hover:bg-blue-900 text-white font-semibold px-6 py-3 rounded-full shadow-lg"
+     >
+       Order Now
+     </a>
+   </div>
+ </div>
+</div> 
+
+  
+
+  <!-- Shop by Category Section -->
+  <section id="shop" class="py-12 bg-blue-100 mt-4">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      <h2 class="text-4xl font-bold text-center text-black">Shop by Category</h2>
+      <p class="mt-2 text-center text-lg  text-gray-800">Find everything you need, from fresh produce to snacks and
+        more.</p>
+
+      <!-- Categories Grid -->
+      <div class=" sm:px-12 lg:px-24  mt-8 grid grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-8 z-10">
+        <!-- Category 1 -->
+        <a href="#decoration">
+          <div class="group relative overflow-hidden rounded-lg shadow-3xl ">
+
+            <img src="decor2.jpg" alt="Fresh Produce"
+              class="w-full h-fit object-cover transform transition-transform duration-300 group-hover:scale-110">
+
+
+
+
+            <div
+              class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 group-hover:bg-opacity-0 transition-opacity duration-300">
+              <span
+                class="text-white px-2 text-xs text-center sm:text-base md:text-lg lg:text-2xl sm:text-center font-semibold">
+                Decoration Items
+              </span>
+
+            </div>
+          </div>
+        </a>
+
+        <!-- Category 2 -->
+        <a href="#groceries">
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="grocery2.jpg" alt="Snacks"
+              class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+            <div
+              class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 group-hover:bg-opacity-0 transition-opacity duration-300">
+              <span
+                class="text-white text-xs text-center sm:text-base md:text-lg lg:text-2xl sm:text-center font-semibold">Groceries</span>
+            </div>
+          </div>
+        </a>
+        <!-- Category 3 -->
+        <a href="#healthcare">
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="health2.webp" alt="Beverages"
+              class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+            <div
+              class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 group-hover:bg-opacity-0 transition-opacity duration-300">
+              <span
+                class="text-white text-xs text-center sm:text-base md:text-lg lg:text-2xl sm:text-center font-semibold">Health
+                Care</span>
+            </div>
+          </div>
+        </a>
+        <!-- Category 4 -->
+        <div class="group relative overflow-hidden rounded-lg shadow-lg">
+          <img src="hukkah.webp" alt="Beverages"
+            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+          <div
+            class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 group-hover:bg-opacity-0 transition-opacity duration-300">
+            <span
+              class="text-white px-2 text-xs text-center sm:text-base md:text-lg lg:text-2xl sm:text-center font-semibold">Hukkah
+              & flavours</span>
+          </div>
+        </div>
+        <!-- Category 5-->
+         <a href="#munchies">
+        <div class="group relative overflow-hidden rounded-lg shadow-lg">
+          <img src="munchies.webp" alt="Beverages"
+            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+          <div
+            class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 group-hover:bg-opacity-0 transition-opacity duration-300">
+            <span
+              class="text-white text-xs text-center sm:text-base md:text-lg lg:text-2xl sm:text-center font-semibold">Munchies</span>
+          </div>
+        </div>
+      </a>
+        <!-- Category 6 -->
+         <a href="#pan">
+        <div class="group relative overflow-hidden rounded-lg shadow-lg">
+          <img src="masala.png" alt="Beverages"
+            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+          <div
+            class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 group-hover:bg-opacity-0 transition-opacity duration-300">
+            <span
+              class="text-white text-xs text-center sm:text-base md:text-lg lg:text-2xl sm:text-center font-semibold">Pan
+              Masala & Cigrettes</span>
+          </div>
+        </div>
+      </a>
+        <!-- Category 7 -->
+         <a href="#personal">
+        <div  class="group relative overflow-hidden rounded-lg shadow-lg">
+          <img src="personal.jpg" alt="Dairy"
+            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+          <div
+            class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 group-hover:bg-opacity-0 transition-opacity duration-300">
+            <span
+              class="text-white text-xs text-center sm:text-base md:text-lg lg:text-2xl sm:text-center font-semibold">Personal
+              Care</span>
+          </div>
+
+        </div>
+        
+      </a>
+
+        <!-- Category 8 -->
+         <a href="#sports">
+        <div class="group relative overflow-hidden rounded-lg shadow-lg">
+          <img src="sports.webp" alt="Dairy"
+            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+          <div
+            class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 group-hover:bg-opacity-0 transition-opacity duration-300">
+            <span
+              class="text-white text-xs text-center sm:text-base md:text-lg lg:text-2xl sm:text-center font-semibold">Sports
+              Items</span>
+          </div>
+
+        </div>
+      </a>
+        <!-- Category 9 -->
+         <a href="#stationary">
+        <div class="group relative overflow-hidden rounded-lg shadow-lg">
+          <img src="stationary.webp" alt="Dairy"
+            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+          <div
+            class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 group-hover:bg-opacity-0 transition-opacity duration-300">
+            <span
+              class="text-white text-xs text-center sm:text-base md:text-lg lg:text-2xl sm:text-center font-semibold">Stationery</span>
+          </div>
+
+        </div>
+      </a>
+        <!-- Category 10 -->
+         <a href="#water">
+        <div class="group relative overflow-hidden rounded-lg shadow-lg">
+          <img src="water.jpg" alt="Dairy"
+            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110">
+          <div
+            class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 group-hover:bg-opacity-0 transition-opacity duration-300">
+            <span
+              class="text-white text-xs text-center sm:text-base md:text-lg lg:text-2xl sm:text-center font-semibold">Water</span>
+          </div>
+
+        </div>
+      </a>
+      </div>
+  </section>
+
+
+
+  <!-- DECORATION SECTIONS  -->
+
+
+
+  <section id="decoration" class="bg-blue-100 py-10 border-b border-gray-300 my-4">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-black text-center mb-8">Decoration Items</h2>
+
+      <!-- Item Grid -->
+      <div class="grid grid-cols-1 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Item 1 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Age Candles" data-price="54.0" data-image="age_candle.webp">
+          <img  src="age_candle.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2">Age Candles</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">15g</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 54.0</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+            <div class="cart-controls">
+              <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+              <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+                <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+                <span class="quantity text-white text-lg font-bold">1</span>
+                <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        <!-- Item 2 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Age Numbers" data-price="999.0" data-image="Age.png">
+          <img src="age.png" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Age Numbers</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">1 Unit</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 999.0</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+            <div class="cart-controls">
+              <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+              <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+                <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+                <span class="quantity text-white text-lg font-bold">1</span>
+                <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Item 3 -->
+        <div class=" product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Baloons" data-price="48.0" data-image="baloons.jpg">
+          <img src="baloons.jpg" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Baloons</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">10g</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 48.0</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+            <div class="cart-controls">
+              <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+              <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+                <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+                <span class="quantity text-white text-lg font-bold">1</span>
+                <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Item 4 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Candles" data-price="25.0" data-image="candles.webp" >
+          <img src="candles.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Candles</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">5 Pcs</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 25.0</p>
+            </div>
+           <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+         <!-- Item 5 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Celebration" data-price="25.0" data-image="celeb.webp">
+          <img src="celeb.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Celebration</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">5 Pcs</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 25.0</p>
+            </div>
+           <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- item 6  -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Decorative Strip" data-price="25.0" data-image="decor.webp">
+          <img src="decor.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Decorative strip</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">5 Pcs</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 25.0</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GROCERIES SECTION  -->
+
+  <section id="groceries" class="bg-blue-100 py-10 border-b border-gray-300 my-4">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-black text-center mb-8">Groceries</h2>
+
+      <!-- Item Grid -->
+      <div class="grid grid-cols-1 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Item 1 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Amul Garlic Butter" data-price="57" data-image="butter.webp">
+          <img src="butter.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class=" text-xl font-semibold mb-2">Amul Garlic Butter</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">100g</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 57</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Amul Gold" data-price="78" data-image="amulgold.jpg">
+          <img src="amulgold.jpg" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 mt-7 lg:mt-0">
+            <h3 class="text-xl font-semibold mb-2">Amul Gold</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">1L</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 78</p>
+            </div>
+           <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Amul Gold Milk" data-price="33" data-image="amulgoldmilk.webp">
+          <img src="amulgoldmilk.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Amul Gold Milk</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">500 ml</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 33</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- Item 4 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Amul Milk" data-price="27" data-image="amulmilk.webp">
+          <img src="amulmilk.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Amul Milk</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">500 ml</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 27</p>
+            </div>
+           <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Amul Toned Milk" data-price="25" data-image="amultonedmilk.jpg">
+          <img src="amultonedmilk.jpg" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Amul Toned Milk</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">5 Pcs</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 25.0</p>
+            </div>
+           <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Britannia Health" data-price="25" data-image="britania.webp">
+          <img src="britania.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Britannia Health</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">5 Pcs</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 25.0</p>
+            </div>
+           <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Health Care SECTION  -->
+
+  <section id="healthcare" class="bg-blue-100 py-10 border-b border-gray-300 my-4">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-black text-center mb-8">Health Care</h2>
+
+      <!-- Item Grid -->
+      <div class="grid grid-cols-1 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Item 1 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Dettol Liquid" data-price="214" data-image="dettol liquid.jpg">
+          <img src="dettol liquid.jpg" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Dettol Liquid </h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">500ml</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 214</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Gulabri" data-price="88" data-image="gulabri.webp">
+          <img src="gulabri.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Gulabri</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">250ml</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 88</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Savlon Liquid" data-price="187" data-image="savlon.jpg">
+          <img src="savlon.jpg" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Savlon Liquid</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">500 ml</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 187</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- Item 4 -->
+        <div class="product  rounded-lg shadow-lg overflow-hidden" data-name="Suthol Liquid" data-price="48" data-image="suthol.jpg">
+          <img src="suthol.jpg" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 bg-white ">
+            <h3 class="text-xl font-semibold mb-2">Suthol Liquid</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">100 ml</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 48</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MUNCHIES SECTION  -->
+
+  <section id="munchies" class="bg-blue-100 py-10 border-b border-gray-300 my-4">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-black text-center mb-8">Munchies</h2>
+
+      <!-- Item Grid -->
+      <div class="grid grid-cols-1 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Item 1 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Fun Fine Chinese Tadka" data-price="5" data-image="fun chinese tadka.jpg">
+          <img src="fun chinese tadka.jpg" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-lg font-semibold mb-2">Fun Fine Chinese Tadka</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">1 Unit</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 5</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden " data-name="Fun Fine Cocktail" data-price="5" data-image="fun cocktail.webp">
+          <img src="fun cocktail.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 mt-7 lg:mt-0">
+            <h3 class="text-xl font-semibold mb-2">Fun Fine Cocktail</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">1 Unit</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 5</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Fun Fine Mast Masala" data-price="5" data-image="fun mast masala.webp">
+          <img src="fun mast masala.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Fun Fine Mast Masala</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">1 Unit</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 5</p>
+            </div>
+           <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- Item 4 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Fun Fine Pudhina" data-price="5" data-image="fun pudhina.webp">
+          <img src="fun pudhina.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 mt-7 lg:mt-0 ">
+            <h3 class="text-xl font-semibold mb-2">Fun Fine Pudhina</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">1 Unit</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 5</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Fun Fine Tangy" data-price="5" data-image="fun tangy.jpg">
+          <img src="fun tangy.jpg" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Fun Fine Tangy</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">1 Unit</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 5</p>
+            </div>
+           <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+
+      </div>
+    </div>
+  </section>
+  
+  <!-- PAN MASALA  SECTION  -->
+  <section id="pan" class="bg-blue-100 py-10 border-b border-gray-300 my-4">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-black text-center mb-8">Pan Masala</h2>
+      
+      <!-- Item Grid -->
+      <div class="grid grid-cols-1 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Item 1 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Rajnigandha Pan Masla" data-price="40" data-image="Rajnigandha.webp">
+          <img src="Rajnigandha.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 mt-7 lg:mt-0">
+            <h3 class="text-xl font-semibold mb-2">Rajnigandha Pan Masala</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">170g</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 40</p>
+            </div>
+           <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Signature Pan Masla Container" data-price="1350" data-image="signature big.webp">
+          <img src="signature big.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 ">
+            <h3 class="text-xl font-semibold mb-2">Signature Pan Masala Container</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">250g</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 1350</p>
+            </div>
+           <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Signature Pan Masala" data-price="50" data-image="signature.webp">
+          <img src="signature.webp" alt="Item 1" class="w-full h-48 object-cover">
+          <div class="p-4 mt-6 ">
+            <h3 class="text-xl font-semibold mb-2">Signature Pan Masala</h3>
+            <div class="flex items-center justify-between">
+              <p class="text-gray-600 mb-4">20g</p>
+              <p class="text-lg font-bold text-green-500 mb-4">Rs. 50</p>
+            </div>
+            <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+
+
+      </div>
+    </div>
+  </section>
+
+   <!-- PERSONAL CARE SECTION  -->
+
+      <section id="personal" class="bg-blue-100 py-10 border-b border-gray-300 my-4">
+        <div class="container mx-auto px-4">
+          <h2 class="text-4xl font-bold text-black text-center mb-8">Personal Care</h2>
+    
+          <!-- Item Grid -->
+          <div class="grid grid-cols-1 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Item 1 -->
+            <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Boro Plus Body Lotion" data-price="375" data-image="boro plus.webp">
+              <img src="boro plus.webp" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 ">
+                <h3 class="text-xl font-semibold mb-2">Boro Plus Body Lotion</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">400ml</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 375</p>
+                </div>
+                 <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Dove Body Love Lotion" data-price="465" data-image="dove.jpg">
+              <img src="dove.jpg" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 ">
+                <h3 class="text-xl font-semibold mb-2">Dove Body Love Lotion</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">400ml</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 465</p>
+                </div>
+               <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Himalaya Aloe & Cucumber Lotion" data-price="5" data-image="himalaya.webp">
+              <img src="himalaya.webp" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 mt-7 lg:mt-0 ">
+                <h3 class="text-xl font-semibold mb-2">Himalaya Aloe & Cucumber Lotion</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">400ml</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 5</p>
+                </div>
+                 <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="product  rounded-lg shadow-lg overflow-hidden" data-name="Joy Fruit Moisturizing Skin Cream" data-price="27" data-image="joy.jpg">
+              <img src="joy.jpg" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 bg-white ">
+                <h3 class="text-xl font-semibold mb-2">Joy Fruit Moisturizing Skin Crean</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">200 ml</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 27</p>
+                </div>
+                 <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            
+    
+          </div>
+        </div>
+      </section>
+
+         <!-- SPORTS SECTION  -->
+      <section id="sports" class="bg-blue-100 py-10 border-b border-gray-300 my-4">
+        <div class="container mx-auto px-4">
+          <h2 class="text-4xl font-bold text-black text-center mb-8">Sports Items</h2>
+    
+          <!-- Item Grid -->
+          <div class="grid grid-cols-1 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Item 1 -->
+            <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Cosco Cricket Ball" data-price="70" data-image="cosco.webp">
+              <img src="cosco.webp" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 ">
+                <h3 class="text-xl font-semibold mb-2">Cosco Cricket Ball</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">70g</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 70</p>
+                </div>
+                 <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Gully Balls" data-price="25" data-image="gully.jpg">
+              <img src="gully.jpg" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 mt-7 lg:mt-0">
+                <h3 class="text-xl font-semibold mb-2">Gully Balls</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">50g</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 25</p>
+                </div>
+                 <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Mark Cricket Ball" data-price="70" data-image="mark.webp">
+              <img src="mark.webp" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 ">
+                <h3 class="text-xl font-semibold mb-2">Mark Cricket Ball</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">101g</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 70</p>
+                </div>
+                 <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="product bg-white rounded-lg shadow-lg overflow-hidden "data-name="Red Leather Ball" data-price="280" data-image="red leather.webp">
+              <img src="red leather.webp" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 ">
+                <h3 class="text-xl font-semibold mb-2">Red Leather Ball</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">155g</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 280</p>
+                </div>
+               <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="White Leather Ball" data-price="280" data-image="white leather.webp">
+              <img src="white leather.webp" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 ">
+                <h3 class="text-xl font-semibold mb-2">White Leather Ball</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">155g</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 280</p>
+                </div>
+                 <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            
+    
+          </div>
+        </div>
+      </section>
+         <!-- STATIONARY SECTION  -->
+      <section id="stationary" class="bg-blue-100 py-10 border-b border-gray-300 my-4">
+        <div class="container mx-auto px-4">
+          <h2 class="text-4xl font-bold text-black text-center mb-8">Stationary</h2>
+    
+          <!-- Item Grid -->
+          <div class="grid grid-cols-1 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Item 1 -->
+            <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Apsara Pencil" data-price="130" data-image="apsara.webp">
+              <img src="apsara.webp" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 mt-7 lg:mt-0">
+                <h3 class="text-xl font-semibold mb-2">Apsara Pencils</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">15g</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 130</p>
+                </div>
+                <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Assignment Papers" data-price="200" data-image="assignment.webp">
+              <img src="assignment.webp" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 ">
+                <h3 class="text-xl font-semibold mb-2">Assignment Papers</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">15g</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 200</p>
+                </div>
+              <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="product rounded-lg shadow-lg overflow-hidden" data-name="Doms Color Pencil" data-price="250" data-image="doms color.webp">
+              <img src="doms color.webp" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 bg-white">
+                <h3 class="text-xl font-semibold mb-2">Doms Color Pencil</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">50g</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 250</p>
+                </div>
+               <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Doms Eraser" data-price="50" data-image="doms eraser.jpg">
+              <img src="doms eraser.jpg" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 mt-7 lg:mt-0">
+                <h3 class="text-xl font-semibold mb-2">Doms Eraser</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">20 Unit</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 50</p>
+                </div>
+               <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Doms Extra Long Sharpener" data-price="280" data-image="sharpener.png">
+              <img src="sharpener.png" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 bg-white">
+                <h3 class="text-xl font-semibold mb-2">Doms Extra Long Sharpener</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">155g</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 280</p>
+                </div>
+              <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            <!-- Item 6 -->
+            <div class="product rounded-lg shadow-lg overflow-hidden " data-name="Doms Geometry Box" data-price="280" data-image="geometry.jpg">
+              <img src="geometry.jpg" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 bg-white">
+                <h3 class="text-2xl font-semibold mb-2">Doms Geometry Box</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">155g</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 280</p>
+                </div>
+               <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold mb-7">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            
+    
+          </div>
+        </div>
+      </section>
+         <!-- WATER SECTION  -->
+      <section id="water" class="bg-blue-100 py-10 border-b border-gray-300 my-4 mb-0">
+        <div class="container mx-auto px-4">
+          <h2 class="text-4xl font-bold text-black text-center mb-8">Water</h2>
+    
+          <!-- Item Grid -->
+          <div class="grid grid-cols-1 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
+            <!-- Item 1 -->
+            <div class="product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Water Dispencer" data-price="200" data-image="dispencer.webp">
+              <img src="dispencer.webp" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 ">
+                <h3 class="text-xl font-semibold mb-2">Water Dispencer</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">1 Unit</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 200</p>
+                </div>
+               <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class=" product bg-white rounded-lg shadow-lg overflow-hidden" data-name="Water Bottle 20L" data-price="200" data-image="bottle.webp">
+              <img src="bottle.webp" alt="Item 1" class="w-full h-48 object-cover">
+              <div class="p-4 ">
+                <h3 class="text-xl font-semibold mb-2">Water Bottle 20L</h3>
+                <div class="flex items-center justify-between">
+                  <p class="text-gray-600 mb-4">1 Unit</p>
+                  <p class="text-lg font-bold text-green-500 mb-4">Rs. 200</p>
+                </div>
+                <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+              </div>
+            </div>
+           
+            
+    
+          </div>
+        </div>
+      </section>
+
+
+<!-- FOOTER SECTION  -->
+      <footer class="bg-black text-white py-8 px-8">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Branding Section -->
+          <div>
+            <h2 class="text-2xl font-bold mb-4">BachelorsTown</h2>
+            <p>Your one-stop shop for fresh groceries delivered to your doorstep.</p>
+          </div>
+      
+          <!-- Navigation Links -->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Social Links</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:underline">Facebook</a></li>
+              <li><a href="#" class="hover:underline">Instagram</a></li>
+              <li><a href="#" class="hover:underline">Twitter</a></li>
+              <li><a href="#" class="hover:underline">Whatsapp</a></li>
+            </ul>
+          </div>
+      
+          <!-- Contact and Social Media -->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+            <ul class="space-y-2">
+              <li>Email: <a href="mailto:info@freshgrocer.com" class="hover:underline">info@freshgrocer.com</a></li>
+              <li>Phone: <a href="tel:+1234567890" class="hover:underline">+1 234 567 890</a></li>
+              <li>Address: 123 Fresh Lane, City, Country</li>
+            </ul>
+            <!-- <div class="mt-4 flex space-x-4">
+              <a href="#" class="hover:text-gray-300">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 4.56c-.89.39-1.84.65-2.84.77a4.92 4.92 0 002.16-2.72 9.86 9.86 0 01-3.13 1.2 4.92 4.92 0 00-8.38 4.48c-4.08-.2-7.7-2.16-10.12-5.13A4.93 4.93 0 001.64 8c0 1.7.87 3.2 2.19 4.08a4.92 4.92 0 01-2.23-.62v.06a4.93 4.93 0 003.95 4.83 4.93 4.93 0 01-2.22.08 4.93 4.93 0 004.6 3.42A9.87 9.87 0 010 19.54a13.93 13.93 0 007.54 2.2c9.05 0 14-7.5 14-14 0-.2 0-.39-.02-.59A10 10 0 0024 4.56z" />
+                </svg>
+              </a>
+              <a href="#" class="hover:text-gray-300">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19.5 3h-15C3.12 3 2 4.12 2 5.5v13C2 19.88 3.12 21 4.5 21h15c1.38 0 2.5-1.12 2.5-2.5v-13C22 4.12 20.88 3 19.5 3zM20 8h-4v11h-3V8h-3V6h3V4.5c0-1.38.62-3.5 3-3.5h3v2h-2.34c-.66 0-.66.36-.66.88V6h3l-.5 2z" />
+                </svg>
+              </a>
+              <a href="#" class="hover:text-gray-300">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c-5.073 0-9.163 4.09-9.163 9.162 0 4.073 3.002 7.438 6.938 8.435-.033-.4-.065-1.036.014-1.487.108-.579.7-3.873.7-3.873s-.179-.357-.179-.887c0-.83.482-1.45 1.084-1.45.511 0 .758.385.758.845 0 .515-.326 1.285-.493 2-.14.582.3 1.058.887 1.058 1.064 0 1.883-1.123 1.883-2.737 0-1.43-1.028-2.43-2.496-2.43-1.7 0-2.697 1.277-2.697 2.594 0 .515.198 1.07.447 1.37a.18.18 0 01.041.172c-.044.19-.146.608-.167.694-.025.106-.088.129-.2.079-.754-.351-1.225-1.45-1.225-2.345 0-1.893 1.37-3.626 3.95-3.626 2.07 0 3.678 1.482 3.678 3.462 0 2.056-1.299 3.703-3.095 3.703-.606 0-1.176-.319-1.37-.693 0 0-.326 1.245-.4 1.542-.121.472-.371 1.046-.56 1.46.5.154 1.027.24 1.578.24 5.073 0 9.163-4.09 9.163-9.163 0-5.073-4.09-9.162-9.163-9.162z" />
+                </svg>
+              </a>
+            </div> -->
+          </div>
+        </div>
+        <div class="text-center mt-8 border-t border-gray-400 pt-4">
+          <p>&copy; 2025 BachelorsTown. All rights reserved.</p>
+        </div>
+      </footer>
+      
+<!-- CLICK TO TOP SECTION  -->
+
+      <button 
+      id="scrollToTopBtn" 
+      class="fixed bottom-5 right-5 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white rounded-full p-3 shadow-lg hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-blue-300 hidden"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path>
+      </svg>
+    </button>
+
+
+  <script>
+    // Toggle Mobile Menu
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+// Click to top section 
+  // Get the button
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+  // Show the button when scrolling down
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      scrollToTopBtn.classList.remove('hidden');
+    } else {
+      scrollToTopBtn.classList.add('hidden');
+    }
+  });
+
+  // Scroll to the top when the button is clicked
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+
+  // Array of placeholders
+  const placeholders = [
+    "Search for items...",
+    "Find Stationary Items...",
+    "Explore dairy products...",
+    "Get snacks for the evening...",
+    "Discover new deals today..."
+  ];
+
+  // Reference to the search bar
+  const searchBar = document.getElementById('searchBar');
+
+  let index = 0;
+
+  // Function to change the placeholder
+  const changePlaceholder = () => {
+    index = (index + 1) % placeholders.length; // Cycle through the array
+    searchBar.placeholder = placeholders[index]; // Update the placeholder
+  };
+
+  // Set interval to change the placeholder every 2 seconds
+  setInterval(changePlaceholder, 2000);
+
+
+  
+
+  // ADD TO CART  SECTION 
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const cartButtons = document.querySelectorAll(".add-to-cart");
+
+  cartButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const product = button.closest(".product");
+      const name = product.dataset.name;
+      const price = parseFloat(product.dataset.price);
+      const image = product.dataset.image; // Get image URL from dataset
+
+      if (!name || isNaN(price) || !image) {
+        console.error("Invalid product data:", { name, price, image });
+        return;
+      }
+
+      // Initialize cart in localStorage if not present
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existingItem = cart.find(item => item.name === name);
+
+      if (!existingItem) {
+        // Add product to the cart with initial quantity of 1
+        cart.push({ name, price, quantity: 1, image });
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }
+
+      // Hide the "Add to Cart" button and show quantity controls
+      button.classList.add("hidden");
+      const quantityControls = product.querySelector(".quantity-controls");
+      quantityControls.classList.remove("hidden");
+
+      // Update the quantity display
+      quantityControls.querySelector(".quantity").textContent = "1";
+    });
+  });
+
+  const quantityControls = document.querySelectorAll(".quantity-controls");
+  quantityControls.forEach(control => {
+    const product = control.closest(".product");
+    const name = product.dataset.name;
+
+    const decreaseButton = control.querySelector(".decrease-quantity");
+    const increaseButton = control.querySelector(".increase-quantity");
+    const quantityDisplay = control.querySelector(".quantity");
+
+    decreaseButton.addEventListener("click", () => {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const itemIndex = cart.findIndex(item => item.name === name);
+
+      if (itemIndex !== -1) {
+        cart[itemIndex].quantity = Math.max(0, cart[itemIndex].quantity - 1);
+
+        if (cart[itemIndex].quantity === 0) {
+          // Remove item from the cart and hide quantity controls
+          cart.splice(itemIndex, 1);
+          control.classList.add("hidden");
+          product.querySelector(".add-to-cart").classList.remove("hidden");
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        quantityDisplay.textContent = cart[itemIndex]?.quantity || 0;
+      }
+    });
+
+    increaseButton.addEventListener("click", () => {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const item = cart.find(item => item.name === name);
+
+      if (item) {
+        item.quantity += 1;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        quantityDisplay.textContent = item.quantity;
+      }
+    });
+  });
+});
+
+  // Synchronize the UI with the cart data on page load
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.forEach(({ name, quantity }) => {
+    const product = [...document.querySelectorAll(".product")].find(
+      p => p.dataset.name === name
+    );
+
+    if (product) {
+      const addToCartButton = product.querySelector(".add-to-cart");
+      const quantityControls = product.querySelector(".quantity-controls");
+
+      addToCartButton.classList.add("hidden");
+      quantityControls.classList.remove("hidden");
+      quantityControls.querySelector(".quantity").textContent = quantity;
+    }
+  });
+
+
+
+// SEARCH BUTTON FUNCTIONALITY 
+
+    function searchProducts() {
+        const searchQuery = document
+            .getElementById("searchBar")
+            .value.toLowerCase()
+            .trim(); // Get the search input and convert to lowercase
+        const products = document.querySelectorAll(".product"); // Select all product cards
+        const searchResults = document.getElementById("searchResults"); // Search results container
+
+        // Clear previous search results
+        searchResults.innerHTML = "";
+
+        let found = false; // Flag to check if any match is found
+
+        products.forEach((product) => {
+            const productName = product.getAttribute("data-name").toLowerCase(); // Get product name
+            if (productName.includes(searchQuery)) {
+                // Create a clone of the product for the search results
+                const productClone = product.cloneNode(true);
+                productClone.classList.add("search-result");
+                searchResults.appendChild(productClone);
+                found = true;
+            }
+        });
+
+        if (!found) {
+            // Display "No results" message if nothing matches
+            searchResults.innerHTML = `
+                <p class="text-center text-gray-600 font-semibold">
+                    No products found for "${searchQuery}".
+                </p>
+            `;
+        }
+    }
+
+
+    function redirectToSearchResults() {
+            const searchQuery = document.getElementById("searchBar").value.trim();
+            if (searchQuery) {
+                // Redirect to the results page with the query string
+                window.location.href = `search-results.html?q=${encodeURIComponent(searchQuery)}`;
+
+            }
+        }
+
+  </script>
+
+
+</body>
+
+</html>

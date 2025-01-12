@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify It's You - Grocery Delivery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-50 flex items-center justify-center min-h-screen">
+
+  <!-- Verify Page -->
+  <div class="w-full max-w-md bg-blue-200 shadow-lg rounded-lg p-6">
+    <!-- Title -->
+    <div class="text-center mb-6">
+      <h1 class="text-2xl font-bold text-black">Verify It's You</h1>
+      <p class="text-gray-500 mt-2">Please enter the OTP sent to your email or phone</p>
+    </div>
+
+    <!-- OTP Verification Form -->
+    <form id="verifyForm">
+      <!-- Email or Phone Field (Dynamic) -->
+      
+
+      <!-- OTP Field -->
+      <div class="mb-4">
+        <label for="otp" class="block text-sm font-medium text-gray-700 mb-1">OTP</label>
+        <input
+          type="text"
+          id="otp"
+          name="otp"
+          placeholder="Enter OTP"
+          class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          required
+        />
+      </div>
+
+      <!-- Resend OTP Button -->
+      <div class="mb-4 text-right">
+        <button type="button" id="resendOtpBtn" class="text-sm text-blue-600 hover:underline">
+          Resend OTP
+        </button>
+      </div>
+
+      <!-- Verify Button -->
+      <div class="mt-6">
+        <button
+          type="submit"
+          class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg p-3 text-lg font-semibold shadow-md hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 focus:outline-none"
+        >
+          Verify
+        </button>
+      </div>
+    </form>
+
+    <!-- Footer -->
+    <div class="text-center mt-6 text-gray-500 text-sm">
+      Didn't receive the OTP? 
+      <a href="#" class="text-blue-600 hover:underline">Resend OTP</a>
+    </div>
+  </div>
+
+  <!-- JavaScript for OTP Resend and Verification -->
+  <script>
+    const form = document.getElementById("verifyForm");
+    const contactInput = document.getElementById("contact");
+    const otpInput = document.getElementById("otp");
+    const resendOtpBtn = document.getElementById("resendOtpBtn");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      // For now, we simply show an alert to simulate verification
+      const contact = contactInput.value.trim();
+      const otp = otpInput.value.trim();
+
+      if (!contact || !otp) {
+        alert("Please enter both contact details and OTP.");
+        return;
+      }
+
+      alert("Verification successful!");
+      form.reset();
+    });
+
+    // Resend OTP functionality (you can integrate this with an API for real resend)
+    resendOtpBtn.addEventListener("click", function() {
+      const contact = contactInput.value.trim();
+
+      if (!contact) {
+        alert("Please enter your contact details first.");
+        return;
+      }
+
+      alert(`OTP resent to ${contact}`);
+    });
+  </script>
+
+</body>
+</html>

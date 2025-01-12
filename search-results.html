@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-blue-100">
+    <div class="container mx-auto p-4">
+      <h1 class="text-3xl font-bold text-center text-blue-500">
+        Search Results
+      </h1>
+      <div
+        id="searchResults"
+        class="mt-6 max-w-lg mx-auto w-full h-auto grid grid-cols-2 gap-4"
+      ></div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Get the search query from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get("q")?.toLowerCase().trim() || "";
+
+        const products = [
+          { name: "Age Candles", price: 54.0, image: "age_candle.webp" },
+          { name: "Age Numbers", price: 999.0, image: "Age.png" },
+          { name: "Baloons", price: 48.0, image: "baloons.jpg" },
+          { name: "Candles", price: 25.0, image: "candles.webp" },
+          { name: "Celebration", price: 25.0, image: "celeb.webp" },
+          { name: "Decorative Strip", price: 25.0, image: "decor.webp" },
+          { name: "Amul Garlic Butter", price: 57.0, image: "butter.webp" },
+          { name: "Amul Gold", price: 78.0, image: "amulgold.jpg" },
+          { name: "Amul Gold Milk", price: 33.0, image: "amulgoldmilk.webp" },
+          { name: "Amul Milk", price: 27.0, image: "amulmilk.webp" },
+          { name: "Amul Toned Milk", price: 25.0, image: "amultonedmilk.jpg" },
+          { name: "Britannia Health", price: 25.0, image: "britania.webp" },
+          { name: "Dettol Liquid", price: 214.0, image: "dettol liquid.jpg" },
+          { name: "Gulabri", price: 88.0, image: "gulabri.webp" },
+          { name: "Savlon Liquid", price: 187.0, image: "savlon.jpg" },
+          { name: "Suthol Liquid", price: 48.0, image: "suthol.jpg" },
+          {
+            name: "Fun Fine Chinese Tadka",
+            price: 5.0,
+            image: "fun chinese tadka.jpg",
+          },
+          { name: "Fun Fine Cocktail", price: 5.0, image: "fun cocktail.webp" },
+          {
+            name: "Fun Fine Mast Masala",
+            price: 5.0,
+            image: "fun mast masala.webp",
+          },
+          { name: "Fun Fine Pudhina", price: 5.0, image: "fun pudhina.webp" },
+          { name: "Fun Fine Tangy", price: 5.0, image: "fun tangy.jpg" },
+          {
+            name: "Rajnigandha Pan Masala",
+            price: 40.0,
+            image: "Rajnigandha.webp",
+          },
+          {
+            name: "Signature Pan Masala Container",
+            price: 1350.0,
+            image: "signature big.webp",
+          },
+          {
+            name: "Signature Pan Masala ",
+            price: 50.0,
+            image: "signature.webp",
+          },
+          {
+            name: "Boro Plus Body Lotion ",
+            price: 375.0,
+            image: "boro plus.webp",
+          },
+          { name: "Dove Body Love Lotion ", price: 465.0, image: "dove.jpg" },
+          {
+            name: "Himalaya Aloe & Cucumber Lotion",
+            price: 5.0,
+            image: "himalaya.webp",
+          },
+          {
+            name: "Joy Fruit Moisturizing Skin Cream",
+            price: 27.0,
+            image: "joy.jpg",
+          },
+          { name: "Cosco Cricket Ball", price: 70.0, image: "cosco.webp" },
+          { name: "Gully Balls", price: 25.0, image: "gully.jpg" },
+          { name: "Mark Cricket Ball", price: 70.0, image: "mark.webp" },
+          { name: "Red Leather Ball", price: 280.0, image: "red leather.webp" },
+          {
+            name: "White Leather Ball",
+            price: 280.0,
+            image: "white leather.webp",
+          },
+          { name: "Apsara Pencils", price: 130.0, image: "apsara.webp" },
+          { name: "Assignment Papers", price: 200.0, image: "assignment.webp" },
+          { name: "Doms Color Pencil", price: 250.0, image: "doms color.webp" },
+          { name: "Doms Eraser", price: 50.0, image: "doms eraser.jpg" },
+          {
+            name: "Doms Extra Long Sharpener",
+            price: 280.0,
+            image: "sharpener.png",
+          },
+          { name: "Doms Geometry Box", price: 280.0, image: "geometry.jpg" },
+          { name: "Water Dispencer", price: 200.0, image: "dispencer.webp" },
+          { name: "Water Bottle 20L", price: 200.0, image: "bottle.webp" },
+        ];
+
+        const searchResults = document.getElementById("searchResults");
+
+        // Initialize cart from localStorage
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Filter products based on the search query
+        const filteredProducts = products.filter((product) =>
+          product.name.toLowerCase().includes(searchQuery)
+        );
+
+        if (filteredProducts.length > 0) {
+          // Render matching products
+          filteredProducts.forEach((product) => {
+            const productElement = document.createElement("div");
+            productElement.className =
+              "product bg-white rounded-lg shadow-lg overflow-hidden p-4";
+
+            productElement.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-36 object-cover">
+                        <h3 class="text-xl font-semibold mt-4">${product.name}</h3>
+                        <p class="text-gray-600 mt-2">Price: Rs. ${product.price}</p>
+                         <!-- Add-to-Cart Button -->
+          <div class="cart-controls">
+            <button class="add-to-cart w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">Add to Cart</button>
+            <div class="flex justify-center mx-auto rounded-lg w-1/2  bg-blue-500  quantity-controls hidden flex items-center justify-center px-0 space-x-2">
+              <button class="decrease-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold" >-</button>
+              <span class="quantity text-white text-lg font-bold">1</span>
+              <button class="increase-quantity bg-blue-500 text-white py-1 px-2 rounded-lg font-bold">+</button>
+            </div>
+          </div>
+                    `;
+            searchResults.appendChild(productElement);
+
+            // Add event listener to the "Add to Cart" button
+            const addToCartButton =
+              productElement.querySelector(".add-to-cart");
+            addToCartButton.addEventListener("click", () => {
+              addToCart(product);
+            });
+          });
+        } else {
+          // Display "No results" message
+          searchResults.innerHTML = `
+                    <p class="text-center text-gray-600 font-semibold">
+                        No products found for "${searchQuery}".
+                    </p>
+                `;
+        }
+
+        // Add to cart functionality
+        function addToCart(product) {
+          // Check if the product is already in the cart
+          const existingProduct = cart.find(
+            (item) => item.name === product.name
+          );
+          if (existingProduct) {
+            existingProduct.quantity += 1; // Increment quantity
+          } else {
+            cart.push({ ...product, quantity: 1 }); // Add new product
+          }
+
+          // Save the updated cart to localStorage
+          localStorage.setItem("cart", JSON.stringify(cart));
+
+          alert(`${product.name} has been added to your cart!`);
+        }
+      });
+    </script>
+  </body>
+</html>

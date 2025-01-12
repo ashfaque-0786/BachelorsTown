@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Grocery Delivery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-300 flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
+    <!-- Logo or Title -->
+    <div class="text-center mb-6">
+      <h1 class="text-2xl font-bold text-blue-600">Welcome to BachelorsTown</h1>
+      <p class="text-gray-500 mt-2">Login to continue</p>
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <!-- Phone Number with Send OTP Button -->
+      <div class="mb-4">
+        <label for="contact" class="block text-sm font-medium text-gray-700 mb-1">Email or Phone</label>
+        <input
+          type="text"
+          id="contact"
+          name="contact"
+          placeholder="Enter your email or phone"
+          class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          required
+          oninput="validateInput(this)"
+        />
+        <p id="error-message" class="text-red-500 text-sm mt-2 hidden">Please enter a valid email or phone number.</p>
+      </div>
+
+      <!-- OTP -->
+      <div class="mb-4">
+        <label for="otp" class="block text-sm font-medium text-gray-700 mb-1">
+          Password
+        </label>
+        <input
+          type="password"
+          id="otp"
+          placeholder="Enter Password"
+          class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        />
+      </div>
+
+      <!-- Submit Button -->
+      <div class="mt-6">
+        <button
+          type="submit"
+          class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg p-3 text-lg font-semibold shadow-md hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 focus:outline-none"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+
+    <!-- Footer -->
+    <div class="text-center mt-6 text-gray-500 text-sm">
+      Don't have an account? 
+      <a href="signUp.html" class="text-blue-600 hover:underline">Sign up</a>
+  </div>
+
+  <script>
+    function validateInput(input) {
+      const value = input.value;
+      const errorMessage = document.getElementById('error-message');
+      
+      // Simple validation for email or phone number
+      const phoneRegex = /^[0-9]{10}$/; // Adjust based on your region's phone number format
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  
+      // Show error if neither email nor phone
+      if (!phoneRegex.test(value) && !emailRegex.test(value)) {
+        errorMessage.classList.remove('hidden');
+      } else {
+        errorMessage.classList.add('hidden');
+      }
+    }
+  </script>
+</body>
+</html>

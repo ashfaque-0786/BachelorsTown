@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="checkout.html" />
+  </head>
+  <body class="bg-blue-200">
+    <div id="cart-items" class="container mx-auto px-4 py-10">
+      <h2 class="text-4xl font-bold text-black text-center mb-8">My Cart</h2>
+      <div id="cart-container" class="space-y-6 lg:w-1/2 mx-auto">
+        <!-- Cart items will be dynamically added here -->
+      </div>
+      <div
+        id="cart-summary"
+        class="mt-8 p-6 bg-white rounded-lg shadow-lg lg:w-1/2 mx-auto"
+      >
+        <h3 class="text-2xl font-semibold mb-4">Cart Summary</h3>
+        <p id="subtotal" class="text-lg font-semibold text-green-600">
+          Subtotal: Rs. 0
+        </p>
+        <button
+          id="checkout"
+          class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition"
+          onclick="proceedToCheckout()"
+        >
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cartContainer = document.getElementById("cart-container");
+        const subtotalElement = document.getElementById("subtotal");
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        if (cart.length === 0) {
+          cartContainer.innerHTML = `<p class="text-center text-gray-600">Your cart is empty.</p>`;
+          document.getElementById("cart-summary").style.display = "none";
+        } else {
+          let subtotal = 0;
+          cart.forEach((item, index) => {
+            const itemElement = document.createElement("div");
+            itemElement.classList.add(
+              "flex",
+              "justify-between",
+              "items-center",
+              "bg-white",
+              "rounded-lg",
+              "shadow-lg",
+              "p-4"
+            );
+            itemElement.innerHTML = `
+                        <div class="flex items-center space-x-4">
+                            <img src="${item.image}" alt="${
+              item.name
+            }" class="w-16 h-16 object-cover rounded">
+                            <div>
+                                <h3 class="text-xl font-semibold">${
+                                  item.name
+                                }</h3>
+                                <p class="text-gray-600">Price: Rs. ${
+                                  item.price
+                                }</p>
+                                <p class="text-gray-600">Quantity: ${
+                                  item.quantity
+                                }</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <p class="text-lg font-bold text-green-600">Rs. ${
+                              item.price * item.quantity
+                            }</p>
+                            <button class="remove-item bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-index="${index}">
+                                Remove
+                            </button>
+                        </div>
+                    `;
+            subtotal += item.price * item.quantity;
+            cartContainer.appendChild(itemElement);
+          });
+          subtotalElement.textContent = `Subtotal: Rs. ${subtotal}`;
+
+          // Add event listeners to remove buttons
+          document.querySelectorAll(".remove-item").forEach((button) => {
+            button.addEventListener("click", (event) => {
+              const index = event.target.dataset.index;
+              removeItemFromCart(index);
+            });
+          });
+        }
+
+        function removeItemFromCart(index) {
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          cart.splice(index, 1); // Remove item at the given index
+          localStorage.setItem("cart", JSON.stringify(cart));
+          location.reload(); // Reload the page to update the cart
+        }
+
+         document.getElementById("checkout").onclick = proceedToCheckout;
+         function proceedToCheckout() {
+           if (
+             localStorage.getItem("cart") &&
+             JSON.parse(localStorage.getItem("cart")).length > 0
+           ) {
+             window.location.href = "checkout.html"; // Navigate to the checkout page
+           } else {
+             alert("Your cart is empty!");
+           }
+         }
+      });
+    </script>
+  </body>
+</html>

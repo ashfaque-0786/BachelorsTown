@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-blue-200">
+    <div class="container mx-auto px-6 py-10">
+      <!-- Header -->
+      <h1 class="text-4xl font-bold text-center mb-10">Checkout</h1>
+
+      <div class="flex flex-col lg:flex-row gap-6">
+        <!-- Order Summary Section -->
+        <div class="bg-white p-6 rounded-lg shadow-md lg:w-1/3">
+          <h2 class="text-2xl font-semibold mb-4">Order Summary</h2>
+          <div id="order-summary" class="space-y-4">
+            <!-- Order items dynamically populated -->
+          </div>
+          <div class="mt-6">
+            <div class="flex justify-between text-gray-600">
+              <p>Subtotal:</p>
+              <p id="checkout-subtotal" class="font-semibold text-green-500">
+                Rs. 0
+              </p>
+            </div>
+            <div class="flex justify-between text-gray-700 font-bold mt-4">
+              <p>Total:</p>
+              <p id="checkout-total" class="text-green-500">Rs. 0</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delivery Details Section -->
+        <div class="bg-white p-6 rounded-lg shadow-md flex-1">
+          <h2 class="text-2xl font-semibold mb-4">Delivery Details</h2>
+          <form id="delivery-form" class="space-y-4">
+            <div>
+              <label for="name" class="block text-sm text-gray-600"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+                placeholder="John Doe"
+              />
+            </div>
+            <div>
+              <label for="address" class="block text-sm text-gray-600"
+                >Address</label
+              >
+              <input
+                type="text"
+                id="address"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+                placeholder="123 Main St"
+              />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm text-gray-600"
+                >Phone</label
+              >
+              <input
+                type="text"
+                id="phone"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+                placeholder="123-456-7890"
+              />
+            </div>
+          </form>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="bg-white p-6 rounded-lg shadow-md lg:w-1/3">
+          <h2 class="text-2xl font-semibold mb-4">Payment Options</h2>
+          <div class="space-y-6">
+            <!-- UPI Payment -->
+            <div>
+              <button
+                id="upi-payment-btn"
+                class="w-full bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition"
+              >
+                Pay via UPI (Paytm, PhonePe, GPay)
+              </button>
+              <div id="upi-details" class="hidden mt-4 space-y-2">
+                <label for="upi-id" class="block text-sm text-gray-600"
+                  >UPI ID</label
+                >
+                <input
+                  type="text"
+                  id="upi-id"
+                  class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+                  placeholder="example@upi"
+                />
+              </div>
+            </div>
+
+            <!-- Debit Card -->
+            <div>
+              <button
+                id="debit-card-btn"
+                class="w-full bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition"
+              >
+                Pay via Debit Card
+              </button>
+              <div id="debit-card-details" class="hidden mt-4 space-y-2">
+                <label
+                  for="debit-card-number"
+                  class="block text-sm text-gray-600"
+                  >Card Number</label
+                >
+                <input
+                  type="text"
+                  id="debit-card-number"
+                  class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+                  placeholder="1234 5678 9012 3456"
+                />
+                <label for="debit-expiry" class="block text-sm text-gray-600"
+                  >Expiry Date</label
+                >
+                <input
+                  type="text"
+                  id="debit-expiry"
+                  class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+                  placeholder="MM/YY"
+                />
+                <label for="debit-cvv" class="block text-sm text-gray-600"
+                  >CVV</label
+                >
+                <input
+                  type="text"
+                  id="debit-cvv"
+                  class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+                  placeholder="123"
+                />
+              </div>
+            </div>
+
+            <!-- Credit Card -->
+            <div>
+              <button
+                id="credit-card-btn"
+                class="w-full bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition"
+              >
+                Pay via Credit Card
+              </button>
+              <div id="credit-card-details" class="hidden mt-4 space-y-2">
+                <label
+                  for="credit-card-number"
+                  class="block text-sm text-gray-600"
+                  >Card Number</label
+                >
+                <input
+                  type="text"
+                  id="credit-card-number"
+                  class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+                  placeholder="1234 5678 9012 3456"
+                />
+                <label for="credit-expiry" class="block text-sm text-gray-600"
+                  >Expiry Date</label
+                >
+                <input
+                  type="text"
+                  id="credit-expiry"
+                  class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+                  placeholder="MM/YY"
+                />
+                <label for="credit-cvv" class="block text-sm text-gray-600"
+                  >CVV</label
+                >
+                <input
+                  type="text"
+                  id="credit-cvv"
+                  class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+                  placeholder="123"
+                />
+              </div>
+            </div>
+
+            <!-- Cash on Delivery -->
+            <div>
+              <button
+                id="cod-btn"
+                class="w-full bg-green-500 text-white py-2 rounded-lg font-semibold hover:bg-green-600 transition"
+              >
+                Cash on Delivery
+              </button>
+              <div id="cod-details" class="hidden mt-4 text-gray-600">
+                <p>
+                  No additional details required. Payment will be collected at
+                  delivery.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+              document.addEventListener("DOMContentLoaded", () => {
+              const orderSummary = document.getElementById("order-summary");
+              const subtotalElement = document.getElementById("checkout-subtotal");
+              const totalElement = document.getElementById("checkout-total");
+              const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+              let subtotal = 0;
+              cart.forEach((item) => {
+                const itemElement = document.createElement("div");
+                itemElement.classList.add(
+                  "flex",
+                  "justify-between",
+                  "items-center",
+                  "border-b",
+                  "pb-4"
+                );
+                itemElement.innerHTML = `
+                          <div>
+                              <h3 class="text-lg font-semibold">${item.name}</h3>
+                              <p class="text-gray-600">Quantity: ${item.quantity}</p>
+                          </div>
+                          <p class="text-lg font-bold text-green-500">Rs. ${
+                            item.price * item.quantity
+                          }</p>
+                      `;
+                subtotal += item.price * item.quantity;
+                orderSummary.appendChild(itemElement);
+              });
+              subtotalElement.textContent = `Rs. ${subtotal}`;
+              totalElement.textContent = `Rs. ${subtotal}`; // Assuming no extra charges
+
+         
+              const toggleDetails = (btnId, detailsId , alertMessage = "") => {
+                const button = document.getElementById(btnId);
+                const details = document.getElementById(detailsId);
+
+                button.addEventListener("click", () => {
+                  details.classList.toggle("hidden");
+
+                   // If an alert message is provided, show the alert
+ if (alertMessage) {
+          alert("Order Placed Successfully");
+        }
+                });
+              };
+
+              toggleDetails("upi-payment-btn", "upi-details");
+              toggleDetails("debit-card-btn", "debit-card-details");
+              toggleDetails("credit-card-btn", "credit-card-details");
+               // For Cash on Delivery button, show an alert and toggle details
+    toggleDetails("cod-btn", "cod-details", "Order placed successfully");
+            });
+    </script>
+  </body>
+</html>
